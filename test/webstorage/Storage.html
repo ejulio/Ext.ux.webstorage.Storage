@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jasmine Test - Ext.ux.webstorage</title>
+        <meta charset="utf-8" />
+        <link rel="shortcut icon" type="image/png" href="../jasmine/jasmine_favicon.png">
+        
+        <!-- Jasmine Files-->
+        <link rel="stylesheet" type="text/css" href="../jasmine/jasmine.css">
+        <script type="text/javascript" src="../jasmine/jasmine.js"></script>
+        <script type="text/javascript" src="../jasmine/jasmine-html.js"></script>
+
+        <!-- ExtJS -->
+        <script type="text/javascript" src="../../extjs/ext-all-dev.js"></script>
+        
+        <!-- include source files here... -->
+        <script type="text/javascript" src="../../src/TextCompactor.js"></script>
+        <script type="text/javascript" src="../../src/Storage.js"></script>
+        
+        <!-- include spec files here... -->
+        <script type="text/javascript" src="spec/Storage.Test.js"></script>
+
+        <script type="text/javascript">
+            (function() {
+                var jasmineEnv = jasmine.getEnv();
+                jasmineEnv.updateInterval = 1000;
+
+                var trivialReporter = new jasmine.TrivialReporter();
+
+                jasmineEnv.addReporter(trivialReporter);
+
+                jasmineEnv.specFilter = function(spec) {
+                    return trivialReporter.specFilter(spec);
+                };
+
+                var currentWindowOnload = window.onload;
+
+                window.onload = function() {
+                    if (currentWindowOnload) {
+                        currentWindowOnload();
+                    }
+                    execJasmine();
+                };
+
+                function execJasmine() {
+                    jasmineEnv.execute();
+                }
+
+            })();
+        </script>
+
+    </head>
+    <body>
+        
+    </body>
+</html>
